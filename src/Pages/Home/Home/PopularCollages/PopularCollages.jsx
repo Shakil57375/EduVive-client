@@ -90,7 +90,7 @@ const PopularCollege = () => {
               <p className="lg:text-3xl  text-center font-bold font-Marcellus">
                 {popular.collegeName}
               </p>
-              <p className="lg:text-lg absolute top-[12.5rem] rounded-se-2xl rounded-es-2xl  bg-cyan-600 text-white p-3 left-[28px]  ">
+              <p className="lg:text-lg absolute lg:top-[12.5rem] top-[13rem] rounded-se-2xl rounded-es-2xl  bg-cyan-600 text-white p-3 left-[0px] lg:left-[28px]  ">
                 Admission - {popular.admissionDate}
               </p>
               <p className=" ">

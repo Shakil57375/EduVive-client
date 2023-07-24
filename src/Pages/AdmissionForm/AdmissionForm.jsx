@@ -164,7 +164,7 @@ const AdmissionForm = () => {
           />
         </div>
         <div className="w-full text-center my-5">
-          <input className="my-btn " value="Add Your Class" type="submit" />
+          <input className="my-btn " value="Submit" type="submit" />
         </div>
       </form>
     </motion.div>

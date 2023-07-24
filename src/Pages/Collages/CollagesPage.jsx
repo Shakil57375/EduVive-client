@@ -34,7 +34,7 @@ const CollegePage = () => {
               <p className="lg:text-3xl  text-center font-bold font-Marcellus ">
                {popular.collegeName}
               </p>
-              <p className="lg:text-lg absolute top-[13.2rem] rounded-se-2xl rounded-es-2xl  bg-cyan-600 text-white p-3 left-[25px] " >
+              <p className="lg:text-lg absolute lg:top-[12.5rem] top-[12.8rem] rounded-se-2xl rounded-es-2xl  bg-cyan-600 text-white p-3 left-[0px] lg:left-[28px] " >
                 Admission - {popular.admissionDate}
               </p>
               <p className="lg:text-lg   font-medium ">
