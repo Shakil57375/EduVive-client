@@ -153,7 +153,7 @@ const Register = () => {
   return (
     <>
       
-      <div className="min-h-screen bg-base-200 my-10">
+      <div className="min-h-screen bg-base-200 my-10 mt-52">
         <div className="flex flex-col lg:flex-row justify-center items-center gap-5 lg:gap-10">
           <motion.div
             initial={{ x: -1550 }}

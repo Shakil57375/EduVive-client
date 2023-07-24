@@ -20,7 +20,7 @@ const Profile = () => {
   if (isLoading) return <Loader />;
   console.log(data);
   return (
-    <div>
+    <div className="mt-52">
       {data?.map((student) => (
         <div key={student._id}>
           <div className="bg-white my-10 rounded-lg p-6 shadow-lg max-w-xs mx-auto mt-10 h-full">
@@ -36,18 +36,18 @@ const Profile = () => {
             </div>
             {/* User Info */}
             <div className="mt-8">
-              <h2 className="text-xl font-semibold text-center text-gray-800">
+              <h2 className="text-3xl font-semibold text-center text-gray-800">
                 {student.studentName}
               </h2>
-              <div className="my-5 space-y-3">
+              <div className="my-5 space-y-3 ">
                 <p className="text-lg text-gray-600">
-                  Name: {student.studentEmail}
+                   {student.studentEmail}
                 </p>
-                <p className="text-sm text-gray-600">
-                  Collage: {student.collageName}
+                <p className="text-lg text-gray-600">
+                  {student.collageName}
                 </p>
-                <p className="text-sm text-gray-600">
-                  Address: {student.address}
+                <p className="text-lg text-gray-600">
+                  {student.address}
                 </p>
               </div>
             </div>

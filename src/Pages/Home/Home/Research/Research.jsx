@@ -24,14 +24,14 @@ const Research = () => {
             className="card w-full h-full bg-base-100 shadow-xl overflow-y-auto"
           >
             <div className="card-body">
-              <h2 className="lg:text-3xl text-xl font-Poppins font-bold text-center">
+              <h2 className="lg:text-3xl text-xl  font-bold text-center">
                 {research.collegeName}
               </h2>
-              <p className="lg:text-xl text-lg font-Poppins font-medium  text-center text-cyan-600">
-                Students Enrolled : {research.researchHistory}
+              <p className="text-[16px]  text-center font-Poppins text-gray-600">
+                {research.researchHistory}
               </p>
-              <p className="lg:text-xl font-Poppins text-lg font-Poppins text-center text-sky-600">
-                Research Paper Link : <a target="_blank" className="underline" href={research.researchLink} rel="noreferrer">{research.collegeName}</a>
+              <p className=" text-lg  text-center text-sky-600">
+                <a target="_blank" className="underline" href={research.researchLink} rel="noreferrer">explore research topic</a>
               </p>
             </div>
           </div>

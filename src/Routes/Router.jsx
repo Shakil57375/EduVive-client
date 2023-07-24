@@ -13,7 +13,6 @@ import Profile from "../Pages/Profile/Profile";
 import UpdateProfile from "../Pages/UpdateProfile/UpdateProfile";
 import MyCollegePage from "../Pages/MyCollage/MyCollage";
 import Feedback from "../Pages/Feedback/Feedback";
-import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {

@@ -6,7 +6,7 @@ const CollegeDetails = () => {
   console.log(details);
 
   return (
-    <div className="container  padding-r-l">
+    <div className="container  padding-r-l mt-52">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center h-max lg:h-[650px] pt-8 mt-16 pb-12 lg:py-0">
         <div className="w-full lg:w-4/5 mx-auto p-6 rounded-xl bg-neutral/5">
           <img
@@ -46,10 +46,10 @@ const CollegeDetails = () => {
                 />
               </figure>
               <div className="card-body l">
-                <p className="lg:text-lg text-justify font-medium font-mono">
+                <p className="lg:text-lg   font-medium ">
                   Name : {event.name}
                 </p>
-                <p className="lg:text-lg text-justify font-medium font-mono">
+                <p className="lg:text-lg   font-medium ">
                   Event Details : {event.description}
                 </p>
               </div>
@@ -72,10 +72,10 @@ const CollegeDetails = () => {
                 />
               </figure>
               <div className="card-body l">
-                <p className="lg:text-lg text-justify font-medium font-mono">
+                <p className="lg:text-lg   font-medium ">
                   Name : {event.eventName}
                 </p>
-                <p className="lg:text-lg text-justify font-medium font-mono">
+                <p className="lg:text-lg   font-medium ">
                   Event Details : {event.eventDetails}
                 </p>
               </div>
@@ -98,10 +98,10 @@ const CollegeDetails = () => {
                 />
               </figure>
               <div className="card-body l">
-                <p className="lg:text-lg text-justify font-medium font-mono">
+                <p className="lg:text-lg   font-medium ">
                   Name : {sport.sportName}
                 </p>
-                <p className="lg:text-lg text-justify font-medium font-mono">
+                <p className="lg:text-lg   font-medium ">
                   Sports Details : {sport.sportDetails}
                 </p>
               </div>

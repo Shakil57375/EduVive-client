@@ -28,7 +28,7 @@ const Header = () => {
   };
   return (
     <div>
-      <div className="flex relative  items-center justify-between shadow-lg gap-4 padding-r-l  padding-u-d">
+      <div className="flex fixed top-0 bg-white z-50 w-full  items-center justify-between shadow-lg gap-4 padding-r-l  padding-u-d">
         <Link to="/">
           <img
             src={logo}

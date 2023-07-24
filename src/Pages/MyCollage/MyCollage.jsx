@@ -21,7 +21,7 @@ const MyCollage = () => {
 
   if (isLoading) return <Loader />;
   return (
-    <div>
+    <div className="mt-40">
       <div>
         <SectionTitle title={"My College"}>
           <li>
@@ -45,15 +45,15 @@ const MyCollage = () => {
                   <h1 className="font-extrabold text-3xl md:text-4xl lg:text-6xl xl:text-7xl py-1 leading-snug">
                     <span className="gradient-text">{data?.studentName}</span>
                   </h1>
-                  <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl pb-1 lg:pb-4">
-                    <span>Name : {data?.studentEmail}</span> <br />
-                    <span>Subject : {data.subject}</span>
+                  <p className="space-y-4">
+                    <span className="text-2xl font-bold font-Montserrat mb-2">{data?.studentEmail}</span> <br />
+                    <span className="text-xl font-medium">Subject : {data.subject}</span>
                     <br />
-                    <span>Research : {data.researchWork}</span>
+                    <span className="text-gray-600 text-[14px]">{data.researchWork}</span>
                   </p>
                   <Link
                     to={`/feedbacks/${data._id}`}
-                    className="my-btn"
+                    className="my-btn relative top-16"
                   >
                     Give your review
                   </Link>
@@ -66,22 +66,22 @@ const MyCollage = () => {
                   {data?.facilities.map((event, index) => (
                     <div
                       key={index}
-                      className="card full bg-base-100 shadow-xl"
+                      className="card  pb-6 bg-base-100 shadow-2xl"
                     >
                       <figure>
                         <img
                           src={event.image}
-                          className="w-full h-60"
+                          className="w-96 rounded-2xl h-60 m-6"
                           alt="PopularCollege"
                         />
                       </figure>
-                      <div className="card-body l">
-                        <p className="lg:text-lg text-justify font-medium font-mono">
-                          Name : {event.name}
+                      <div className="flex flex-col px-6 space-y-3 ">
+                        <p className="lg:text-3xl  text-center font-bold font-Marcellus">
+                         {event.name}
                         </p>
-                        <p className="lg:text-lg text-justify font-medium font-mono">
-                          Event Details : {event.description}
-                        </p>
+                          <div className="text-sm text-center text-gray-600 ml-2">
+                          {event.description}
+                          </div>
                       </div>
                     </div>
                   ))}
@@ -94,20 +94,21 @@ const MyCollage = () => {
                   {data?.events.map((event, index) => (
                     <div
                       key={index}
-                      className="card full bg-base-100 shadow-xl"
+                      className="card  pb-6 bg-base-100 shadow-2xl"
                     >
                       <figure>
                         <img
                           src={event.eventImage}
-                          className="w-full h-60"
+                          className="w-96 rounded-2xl h-60 m-6"
                           alt="PopularCollege"
                         />
                       </figure>
-                      <div className="card-body l">
-                        <p className="lg:text-lg text-justify font-medium font-mono">
-                          Name : {event.eventName}
+                      <div className="flex flex-col px-6 space-y-3 ">
+                        <p  className="lg:text-3xl  text-center font-bold font-Marcellus">
+                          {event.eventName}
                         </p>
-                        <p className="lg:text-lg text-justify font-medium font-mono">
+                        
+                        <p  className="text-sm text-center text-gray-600 ml-2">
                           Event Details : {event.eventDetails}
                         </p>
                       </div>
@@ -122,20 +123,20 @@ const MyCollage = () => {
                   {data?.sports.map((sport, index) => (
                     <div
                       key={index}
-                      className="card full bg-base-100 shadow-xl"
+                      className="card  pb-6 bg-base-100 shadow-2xl"
                     >
                       <figure>
                         <img
                           src={sport.sportImage}
-                          className="w-full h-60"
+                          className="w-96 rounded-2xl h-60 m-6"
                           alt="PopularCollege"
                         />
                       </figure>
-                      <div className="card-body l">
-                        <p className="lg:text-lg text-justify font-medium font-mono">
-                          Name : {sport.sportName}
+                      <div className="flex flex-col px-6 space-y-3 ">
+                        <p className="lg:text-3xl  text-center font-bold font-Marcellus">
+                          {sport.sportName}
                         </p>
-                        <p className="lg:text-lg text-justify font-medium font-mono">
+                        <p className="text-sm text-center text-gray-600 ml-2">
                           Sports Details : {sport.sportDetails}
                         </p>
                       </div>

@@ -145,7 +145,7 @@ const Login = () => {
 
   return (
     <>
-      <div className="bg-base-200 my-14 p-10">
+      <div className="bg-base-200 my-14 p-10 mt-52">
         <div className="flex flex-col lg:flex-row justify-center items-center gap-5 lg:gap-10">
           <motion.div
             initial={{ x: -1550 }}

@@ -15,3 +15,16 @@
 .padding-u-d{
   @apply lg:py-10 py-5
 }
+
+.font-Marcellus {
+  font-family: 'Marcellus', serif;
+}
+
+
+.font-Montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.font-Poppins {
+  font-family: 'Poppins', sans-serif;
+}

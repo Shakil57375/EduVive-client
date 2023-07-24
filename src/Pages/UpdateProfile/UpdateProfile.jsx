@@ -34,7 +34,7 @@ const UpdateProfile = () => {
     }
 
     return (
-        <div className='flex min-h-full flex-col justify-center px-4 py-8 lg:px-8'>
+        <div className='flex min-h-full flex-col justify-center px-4 py-8 lg:px-8 mt-32'>
 
             <div className="mt-20 sm:mx-auto sm:w-full sm:max-w-sm md:max-w-md lg:max-w-lg p-4 md:p-7 rounded-lg shadow-2xl shadow-gray-500 dark:border-2 dark:bg-gray-800 dark:border-gray-700">
                 <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -42,7 +42,7 @@ const UpdateProfile = () => {
                 </div>
                 <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-5 mt-8'>
                     <div>
-                        <label htmlFor="name" className="block mb-3 text-sm lg:text-lg font-medium font-mono text-gray-900 dark:text-white">Candidate Name</label>
+                        <label htmlFor="name" className="block mb-3 text-sm lg:text-lg font-medium  text-gray-900 dark:text-white">Candidate Name</label>
                         <div className="input_group ">
                             <input
                                 type="text"
@@ -57,7 +57,7 @@ const UpdateProfile = () => {
                         </div>
                     </div>
                     <div>
-                        <label htmlFor="email" className="block mb-3 text-sm lg:text-lg font-medium font-mono text-gray-900 dark:text-white">Candidate Email</label>
+                        <label htmlFor="email" className="block mb-3 text-sm lg:text-lg font-medium  text-gray-900 dark:text-white">Candidate Email</label>
                         <div className="input_group ">
                             <input
                                 type="email"
@@ -72,7 +72,7 @@ const UpdateProfile = () => {
                         </div>
                     </div>
                     <div className='hidden'>
-                        <label htmlFor="id" className="block mb-3 text-sm lg:text-lg font-medium font-mono text-gray-900 dark:text-white">Candidate Email</label>
+                        <label htmlFor="id" className="block mb-3 text-sm lg:text-lg font-medium  text-gray-900 dark:text-white">Candidate Email</label>
                         <div className="input_group ">
                             <input
                                 placeholder="Type here"
@@ -83,7 +83,7 @@ const UpdateProfile = () => {
                         </div>
                     </div>
                     <div>
-                        <label htmlFor="subject" className="block mb-3 text-sm lg:text-lg font-medium font-mono text-gray-900 dark:text-white">Name Of Colleges</label>
+                        <label htmlFor="subject" className="block mb-3 text-sm lg:text-lg font-medium  text-gray-900 dark:text-white">Name Of Colleges</label>
                         <div className="input_group ">
                             <select
                                 required
@@ -101,7 +101,7 @@ const UpdateProfile = () => {
                         </div>
                     </div>
                     <div>
-                        <label htmlFor="address" className="block mb-3 text-sm lg:text-lg font-medium font-mono text-gray-900 dark:text-white">Candidate Address</label>
+                        <label htmlFor="address" className="block mb-3 text-sm lg:text-lg font-medium  text-gray-900 dark:text-white">Candidate Address</label>
                         <div className="input_group ">
                             <input
                                 type="text"

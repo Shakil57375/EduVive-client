@@ -37,7 +37,7 @@ const Feedback = () => {
   };
 
   return (
-    <div className="flex min-h-full flex-col justify-center px-4 py-8 lg:px-8">
+    <div className="flex min-h-full flex-col justify-center px-4 py-8 lg:px-8 mt-32">
 
       <div className="mt-20 sm:mx-auto sm:w-full sm:max-w-sm md:max-w-md lg:max-w-lg p-4 md:p-7 rounded-lg shadow-2xl shadow-gray-500 dark:border-2 dark:bg-gray-800 dark:border-gray-700">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -65,7 +65,7 @@ const Feedback = () => {
           <div className="hidden">
             <label
               htmlFor="id"
-              className="block mb-3 text-sm lg:text-lg font-medium font-mono text-gray-900 dark:text-white"
+              className="block mb-3 text-sm lg:text-lg font-medium  text-gray-900 dark:text-white"
             >
               Candidate Email
             </label>
@@ -81,7 +81,7 @@ const Feedback = () => {
           <div>
             <label
               htmlFor="subject"
-              className="block mb-3 text-sm lg:text-lg font-medium font-mono text-gray-900 dark:text-white"
+              className="block mb-3 text-sm lg:text-lg font-medium  text-gray-900 dark:text-white"
             >
               Name Of Colleges
             </label>

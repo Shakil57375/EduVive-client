@@ -8,7 +8,7 @@ const PopularCollegeDetails = () => {
     const details = useLoaderData();
 
     return (
-        <div className='container padding-r-l'>
+        <div className='container padding-r-l mt-52'>
 
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center h-max lg:h-[650px] pt-8 mt-16 pb-12 lg:py-0">
@@ -49,8 +49,8 @@ const PopularCollegeDetails = () => {
                                 <img src={event.eventImage} className="w-full h-60" alt="PopularCollege" />
                             </figure>
                             <div className="card-body l">
-                                <p className="lg:text-lg text-justify font-medium font-mono">Name : {event.eventName}</p>
-                                <p className="lg:text-lg text-justify font-medium font-mono">Event Details : {event.eventDetails}</p>
+                                <p className="lg:text-lg   font-medium ">Name : {event.eventName}</p>
+                                <p className="lg:text-lg   font-medium ">Event Details : {event.eventDetails}</p>
                             </div>
                         </div>
                     ))}
@@ -69,8 +69,8 @@ const PopularCollegeDetails = () => {
                                 <img src={sport.sportImage} className="w-full h-60" alt="PopularCollege" />
                             </figure>
                             <div className="card-body l">
-                                <p className="lg:text-lg text-justify font-medium font-mono">Name : {sport.sportName}</p>
-                                <p className="lg:text-lg text-justify font-medium font-mono">Sports Details : {sport.sportDetails}</p>
+                                <p className="lg:text-lg   font-medium ">Name : {sport.sportName}</p>
+                                <p className="lg:text-lg   font-medium ">Sports Details : {sport.sportDetails}</p>
                             </div>
                         </div>
                     ))}

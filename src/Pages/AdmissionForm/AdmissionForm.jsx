@@ -72,7 +72,7 @@ const AdmissionForm = () => {
       initial={{ y: 3350 }}
       animate={{ y: 0 }}
       transition={{ delay: 1, type: "spring", stiffness: 50 }}
-      className="padding-r-l mt-5"
+      className="padding-r-l mt-52"
     >
       <p className="text-center text-4xl font-bold font-Marcellus mt-3 mb-3">
         Hello, {user?.displayName}
@@ -83,83 +83,83 @@ const AdmissionForm = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="md:flex block justify-between mt-3 gap-5 items-center">
           <div className="lg:w-1/2 w-full">
-            <label className="text-lg font-Poppins font-semibold">Name :</label>
+            <label className="text-lg  font-semibold">Name :</label>
             <input
               placeholder="Type here"
               readOnly
               defaultValue={user?.displayName}
-              className="input mt-2 mr-6 input-bordered input-accent w-full  transition duration-300 focus:ring-2 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-lg font-Poppins px-5 py-2.5 mb-2"
+              className="input mt-2 mr-6 input-bordered input-accent w-full  transition duration-300 focus:ring-2 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-lg  px-5 py-2.5 mb-2"
               {...register("studentName", { required: true })}
             />
           </div>
           <div className="lg:w-1/2 w-full">
-            <label className="text-lg font-Poppins font-semibold">
+            <label className="text-lg  font-semibold">
               Email :
             </label>
             <input
               placeholder="Type here"
               readOnly
               defaultValue={user?.email}
-              className="input mt-2 mr-6 input-bordered input-accent w-full  transition duration-300 focus:ring-2 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-lg font-Poppins px-5 py-2.5 mb-2"
+              className="input mt-2 mr-6 input-bordered input-accent w-full  transition duration-300 focus:ring-2 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-lg  px-5 py-2.5 mb-2"
               {...register("studentEmail", { required: true })}
             />
           </div>
         </div>
         <div className="md:flex block justify-between gap-5 items-center">
           <div className="lg:w-1/2 w-full">
-            <label className="text-lg font-Poppins font-semibold">
+            <label className="text-lg  font-semibold">
               Subject Name :
             </label>
             <input
               placeholder="Type Your Subject Name "
-              className="input mt-2 mr-6 input-bordered input-accent w-full  transition duration-300 focus:ring-2 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-lg font-Poppins px-5 py-2.5 mb-2"
+              className="input mt-2 mr-6 input-bordered input-accent w-full  transition duration-300 focus:ring-2 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-lg  px-5 py-2.5 mb-2"
               {...register("subjectName", { required: true })}
             />
           </div>
           <div className="lg:w-1/2 w-full">
-            <label className="text-lg font-Poppins font-semibold">
+            <label className="text-lg  font-semibold">
               Phone Number :
             </label>
             <input
               type="number"
               placeholder="Type Your Phone Number"
-              className="input mt-2 mr-6 input-bordered input-accent w-full  transition duration-300 focus:ring-2 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-lg font-Poppins px-5 py-2.5 mb-2"
+              className="input mt-2 mr-6 input-bordered input-accent w-full  transition duration-300 focus:ring-2 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-lg  px-5 py-2.5 mb-2"
               {...register("phoneNumber", { required: true })}
             />
           </div>
         </div>
         <div className="md:flex block justify-between mt-3 gap-5 items-center">
           <div className="lg:w-1/2 w-full">
-            <label className="text-lg font-Poppins font-semibold">
+            <label className="text-lg  font-semibold">
               Date of Birth :
             </label>
             <input
               placeholder="Type Your Date of Birth"
               type="text"
-              className="input mt-2 mr-6 input-bordered input-accent w-full  transition duration-300 focus:ring-2 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-lg font-Poppins px-5 py-2.5 mb-2"
+              className="input mt-2 mr-6 input-bordered input-accent w-full  transition duration-300 focus:ring-2 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-lg  px-5 py-2.5 mb-2"
               {...register("dateOfBirth", { required: true })}
             />
           </div>
           <div className="lg:w-1/2 w-full">
-            <label className="text-lg font-Poppins font-semibold">
+            <label className="text-lg  font-semibold">
               Upload Image :
             </label>
             <input
               placeholder="Type here"
               type="file"
-              className="input mt-2 mr-6 w-full  transition duration-300 focus:ring-2 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-lg font-Poppins px-5 py-2.5 mb-2"
+              className="input mt-2 mr-6 w-full  transition duration-300 focus:ring-2 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-lg  px-5 py-2.5 mb-2"
               {...register("image", { required: true })}
             />
           </div>
         </div>
         <div className="w-full">
-          <label className="text-lg font-Poppins font-semibold">
+          <label className="text-lg  font-semibold">
             Address :
           </label>
           <input
             placeholder="Type Your Address"
             type="text"
-            className="input mt-2 mr-6 input-bordered input-accent w-full  transition duration-300 focus:ring-2 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-lg font-Poppins px-5 py-2.5 mb-2"
+            className="input mt-2 mr-6 input-bordered input-accent w-full  transition duration-300 focus:ring-2 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-lg  px-5 py-2.5 mb-2"
             {...register("address", { required: true })}
           />
         </div>
