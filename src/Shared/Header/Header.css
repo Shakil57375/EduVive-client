@@ -1,0 +1,24 @@
+/* Style for the links */
+.link {
+  margin-right: 20px;
+  position: relative;
+  text-decoration: none;
+  }
+  
+  /* Style for the border when hovering */
+  .link:after {
+    content: "";
+    width: 0;
+    position: absolute;
+    height: 2px;
+    background: cyan;
+    bottom: -3px;
+    left: 0px;
+    transition: 600ms;
+  }
+  
+  /* Style for the border when hovering */
+  .link:hover:after {
+    width: 100%;
+  }
+  
