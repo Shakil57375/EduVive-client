@@ -18,7 +18,7 @@ const Header = () => {
       <Link to="/admissionPage" className="link text-base font-medium flex flex-col lg:inline-block">
         Admission
       </Link>
-      <Link className="link text-base font-medium flex flex-col lg:inline-block">
+      <Link to="/myCollage" className="link text-base font-medium flex flex-col lg:inline-block">
         My Collage
       </Link>
     </div>
@@ -105,7 +105,7 @@ const Header = () => {
                     className="mt-3 p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52"
                   >
                     <li>
-                      <Link className="hover:!bg-neutral/10">
+                      <Link to="/profile" className="hover:!bg-neutral/10">
                         {user?.displayName}
                       </Link>
                     </li>

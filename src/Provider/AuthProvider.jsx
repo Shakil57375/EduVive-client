@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { createContext, useEffect, useState } from "react";
 import {
+  GithubAuthProvider,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   getAuth,
@@ -14,6 +15,7 @@ import {
 import app from "../FirebaseConfig/FirebaseConfig";
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
+const githubProvider = new GithubAuthProvider();
 export const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -33,6 +35,10 @@ const AuthProvider = ({ children }) => {
   const handleGoogleSignIn = () => {
     setLoader(true);
     return signInWithPopup(auth, googleProvider);
+  };
+  const handleGithubSignIn = () => {
+    setLoader(true);
+    return signInWithPopup(auth, githubProvider);
   };
   const updateUser = (name, photo) => {
     return updateProfile(auth.currentUser, {
@@ -63,6 +69,7 @@ const AuthProvider = ({ children }) => {
     handleLogin,
     ResetPassword,
     handleGoogleSignIn,
+    handleGithubSignIn,
     updateUser,
     logOut,
   };

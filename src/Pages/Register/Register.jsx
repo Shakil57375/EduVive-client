@@ -1,5 +1,5 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { FaEyeSlash, FaEye, FaGoogle } from "react-icons/fa";
+import { FaEyeSlash, FaEye, FaGoogle, FaGithub } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
 import Swal from "sweetalert2";
@@ -11,7 +11,7 @@ const Register = () => {
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const from = location.state?.from?.pathname || "/";
-  const { handleRegister, updateUser, handleGoogleSignIn, logOut, setLoader } =
+  const { handleRegister, updateUser, handleGoogleSignIn, logOut, setLoader, handleGithubSignIn } =
     useContext(AuthContext);
   const {
     register,
@@ -31,7 +31,7 @@ const Register = () => {
             email: data.email,
             image: data.photoURL,
           };
-          fetch("http://localhost:5000/users", {
+          fetch("https://collage-booking-server-six.vercel.app/users", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -75,7 +75,7 @@ const Register = () => {
           image: loggerUser.photoURL,
         };
 
-        fetch("https://summer-camp-school-server-shakil57375.vercel.app/users", {
+        fetch("https://collage-booking-server-six.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -88,6 +88,51 @@ const Register = () => {
               position: "center",
               icon: "success",
               title: "User successfully login by google.",
+              showConfirmButton: true,
+              // timer: 1500
+            });
+            navigate(from, { replace: true });
+          })
+          .catch((error) => {
+            setLoader(false);
+            console.log(error);
+          });
+      })
+      .catch((error) => {
+        setLoader(false);
+        const ErrorMessage = error.message;
+        console.log(ErrorMessage);
+      });
+  };
+
+  const handleGithubLogin = () => {
+    handleGithubSignIn()
+      .then((result) => {
+        const loggerUser = result.user;
+        console.log(loggerUser);
+
+        const savedUser = {
+          name: loggerUser.displayName,
+          email: loggerUser.email,
+          image: loggerUser.photoURL,
+        };
+
+        fetch(
+          "https://summer-camp-school-server-shakil57375.vercel.app/users",
+          {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(savedUser),
+          }
+        )
+          .then((response) => response.json())
+          .then(() => {
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              title: "User successfully login by github.",
               showConfirmButton: true,
               // timer: 1500
             });
@@ -295,12 +340,20 @@ const Register = () => {
               </p>
             </form>
             <div className="divider">OR</div>
-            <button
-              onClick={handleGoogleLogin}
-              className="btn btn-circle btn-outline mx-auto mb-5"
-            >
-              <FaGoogle className="text-red-600 "></FaGoogle>
-            </button>
+            <div className="flex items-center gap-5 justify-normal px-40">
+              <button
+                onClick={handleGoogleLogin}
+                className="btn btn-circle btn-outline mx-auto mb-5"
+              >
+                <FaGoogle className="text-red-600 "></FaGoogle>
+              </button>
+              <button
+                onClick={handleGithubLogin}
+                className="btn btn-circle btn-outline mx-auto mb-5"
+              >
+                <FaGithub className="text-black-600 "></FaGithub>
+              </button>
+            </div>
           </motion.div>
         </div>
       </div>

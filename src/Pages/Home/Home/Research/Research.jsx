@@ -7,7 +7,7 @@ const Research = () => {
   const { data, isLoading } = useQuery({
     queryKey: ["researchpaper"],
     queryFn: async () => {
-      const res = await axios.get("http://localhost:5000/research");
+      const res = await axios.get("https://collage-booking-server-six.vercel.app/research");
       return res.data;
     },
   });

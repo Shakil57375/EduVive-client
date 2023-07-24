@@ -7,7 +7,7 @@ const CollegePage = () => {
   const { data, isLoading } = useQuery({
     queryKey: ["colleges"],
     queryFn: async () => {
-      const res = await axios.get("http://localhost:5000/popularCollage");
+      const res = await axios.get("https://collage-booking-server-six.vercel.app/popularCollage");
       return res.data;
     },
   });
@@ -19,7 +19,7 @@ const CollegePage = () => {
       {console.log(data)}
 
       <div className="container  padding-r-l grid grid-cols-1 lg:mt-16 lg:mb-16  mt-8 mb-9 md:mt-10 md:mb-10 md:grid-cols-2 lg:grid-cols-3 gap-10">
-        {data.map((popular) => (
+        {data?.map((popular) => (
           <div key={popular._id} className="card full bg-base-100 shadow-xl">
             <figure>
               <img

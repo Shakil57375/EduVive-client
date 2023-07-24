@@ -35,6 +35,7 @@ const AdmissionForm = () => {
             studentName,
             studentEmail,
             subjectName,
+            userEmail : studentEmail,
             phoneNumber,
             dateOfBirth,
             collageName : details?.collegeName,
@@ -43,12 +44,13 @@ const AdmissionForm = () => {
             facilities : details?.Facilities,
             events : details?.events,
             sports : details?.sports,
+            studentImage : user?.photoURL,
             image: imgURL,
             address,
           };
           console.log(studentInfo);
           axios
-            .post("http://localhost:5000/studentInfo", studentInfo)
+            .post("https://collage-booking-server-six.vercel.app/studentInfo", studentInfo)
             .then((data) => {
               console.log("student info.", data.data);
               if (data.data.insertedId) {

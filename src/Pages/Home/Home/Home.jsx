@@ -1,3 +1,4 @@
+import Review from "../../Review/Review";
 import Banner from "./Banner/Banner";
 import Gallery from "./Gallery/Gallery";
 import PopularCollege from "./PopularCollages/PopularCollages";
@@ -10,6 +11,7 @@ const Home = () => {
             <PopularCollege/>
             <Gallery/>
             <Research/>
+            <Review/>
         </div>
     );
 };

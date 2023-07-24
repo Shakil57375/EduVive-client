@@ -1,5 +1,5 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
+import { FaEye, FaEyeSlash, FaGoogle, FaGithub } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { motion } from "framer-motion";
@@ -9,8 +9,8 @@ const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
-  const { register, handleSubmit, reset } = useForm();
-  const { handleLogin, handleGoogleSignIn, setLoader } =
+  const { register, handleSubmit, reset, getValues } = useForm();
+  const { handleLogin, handleGoogleSignIn, ResetPassword, handleGithubSignIn, setLoader } =
     useContext(AuthContext);
   const from = location.state?.from?.pathname || "/";
   const onSubmit = (data) => {
@@ -31,7 +31,7 @@ const Login = () => {
         console.log(error.message);
       });
   };
-  
+
   const handleGoogleLogin = () => {
     handleGoogleSignIn()
       .then((result) => {
@@ -44,13 +44,16 @@ const Login = () => {
           image: loggerUser.photoURL,
         };
 
-        fetch("https://summer-camp-school-server-shakil57375.vercel.app/users", {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(savedUser),
-        })
+        fetch(
+          "https://summer-camp-school-server-shakil57375.vercel.app/users",
+          {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(savedUser),
+          }
+        )
           .then((response) => response.json())
           .then(() => {
             Swal.fire({
@@ -73,6 +76,73 @@ const Login = () => {
         console.log(ErrorMessage);
       });
   };
+
+  const handleGithubLogin = () => {
+    handleGithubSignIn()
+      .then((result) => {
+        const loggerUser = result.user;
+        console.log(loggerUser);
+
+        const savedUser = {
+          name: loggerUser.displayName,
+          email: loggerUser.email,
+          image: loggerUser.photoURL,
+        };
+
+        fetch(
+          "https://summer-camp-school-server-shakil57375.vercel.app/users",
+          {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(savedUser),
+          }
+        )
+          .then((response) => response.json())
+          .then(() => {
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              title: "User successfully login by github.",
+              showConfirmButton: true,
+              // timer: 1500
+            });
+            navigate(from, { replace: true });
+          })
+          .catch((error) => {
+            setLoader(false);
+            console.log(error);
+          });
+      })
+      .catch((error) => {
+        setLoader(false);
+        const ErrorMessage = error.message;
+        console.log(ErrorMessage);
+      });
+  };
+
+  const handleReset = () => {
+    const fromData = getValues();
+    const email = fromData.email;
+    console.log(email);
+
+    ResetPassword(email)
+      .then(() => {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Please check your email for reset link",
+          showConfirmButton: true,
+          // timer: 1500
+        });
+        // setLoading(false)
+      })
+      .catch((error) => {
+          console.log(error.message);
+      });
+  };
+
   return (
     <>
       <div className="bg-base-200 my-14 p-10">
@@ -136,6 +206,12 @@ const Login = () => {
                     )}
                   </small>
                 </p>
+                <a
+                  onClick={handleReset}
+                  className="text-sm cursor-pointer font-medium text-blue-600 hover:underline dark:text-primary-500"
+                >
+                  Forget password?
+                </a>
               </div>
               <div className="form-control mt-6">
                 <motion.input
@@ -158,13 +234,21 @@ const Login = () => {
                 </small>
               </p>
             </form>
-            <div className="divider">OR</div>
-            <button
-              onClick={handleGoogleLogin}
-              className="btn btn-circle btn-outline mx-auto mb-5"
-            >
-              <FaGoogle className="text-red-600 "></FaGoogle>
-            </button>
+            <div className="divider ">OR</div>
+            <div className="flex items-center gap-5 justify-normal px-40">
+              <button
+                onClick={handleGoogleLogin}
+                className="btn btn-circle btn-outline mx-auto mb-5"
+              >
+                <FaGoogle className="text-red-600 "></FaGoogle>
+              </button>
+              <button
+                onClick={handleGithubLogin}
+                className="btn btn-circle btn-outline mx-auto mb-5"
+              >
+                <FaGithub className="text-black-600 "></FaGithub>
+              </button>
+            </div>
           </motion.div>
         </div>
       </div>

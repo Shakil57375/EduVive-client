@@ -3,35 +3,39 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import Loader from "../../../../Components/Loader/Loader";
 import SectionTitle from "../../../../Components/SectionTitle/SectionTitle";
-// import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const PopularCollege = () => {
-//   const [serachText, setSearchText] = useState("");
-//   const [collages, setCollages] = useState([])
+  const [datas, setDatas] = useState([]);
+  const [searchText, setSearchText] = useState("");
   const { data, isLoading } = useQuery({
     queryKey: ["popularCollage"],
     queryFn: async () => {
-      const res = await axios.get("http://localhost:5000/popularCollage");
+      const res = await axios.get("https://collage-booking-server-six.vercel.app/popularCollage");
       return res.data;
     },
   });
 
-//     fetch("http://localhost:5000/popularCollage")
-//     .then(res => res.json())
-//     .then(data =>{
-//         setCollages(data)
-//     })
+  // Use useEffect to update the datas state when data changes
+  useEffect(() => {
+    if (data) {
+      setDatas(data);
+    }
+  }, [data]);
+  // console.log(datas)
 
-//   const handleSearch = () => {
-//     fetch(`http://localhost:5000/CollageSearchByName/${serachText}`)
-//     .then(res => res.json())
-//     .then(data =>{
-//         setCollages(data)
-//     })
-//   };
+  const handleSearch = async () => {
+    try {
+      const response = await axios.get(
+        `https://collage-booking-server-six.vercel.app/collegeName/${searchText}`
+      );
+      setDatas(response.data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
 
- if(isLoading) return <Loader/>
-  
+  if (isLoading) return <Loader />;
 
   return (
     <div className="container">
@@ -43,13 +47,13 @@ const PopularCollege = () => {
       <div className="relative flex justify-between lg:w-[500px] w-full h-12 rounded-xl shadow-lg focus-within:shadow-lg border border-cyan-500  z-50 mx-auto">
         <input
           className=" h-full  outline-none text-sm rounded-s-xl pl-6 text-gray-700 "
-        //   onChange={(e) => setSearchText(e.target.value)}
+            onChange={(e) => setSearchText(e.target.value)}
           type="text"
           id="search"
           placeholder="Search Collage"
         />
         {/* <div onClick={handleSearch} className="grid place-items-center h-full w-12 text-cyan-600 cursor-pointer"> */}
-        <div className="grid place-items-center h-full w-12 text-cyan-600 cursor-pointer">
+        <button onClick={handleSearch} className="grid place-items-center h-full w-12 text-cyan-600 cursor-pointer">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 w-6"
@@ -64,11 +68,11 @@ const PopularCollege = () => {
               d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
             />
           </svg>
-        </div>
+        </button>
       </div>
 
       <div className="grid grid-cols-1 padding-r-l lg:mt-7 mt-3 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {data.slice(0, 3).map((popular) => (
+        {datas.slice(0, 3).map((popular) => (
           <div key={popular._id} className="card full bg-base-100 shadow-xl">
             <figure>
               <img
@@ -102,7 +106,9 @@ const PopularCollege = () => {
 
               <div className="card-actions w-full justify-center mt-2">
                 <button className="my-btn">
-                  <Link to={`/popularcollegedetails/${popular._id}`}>Details</Link>
+                  <Link to={`/popularcollegedetails/${popular._id}`}>
+                    Details
+                  </Link>
                 </button>
               </div>
             </div>
